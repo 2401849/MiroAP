@@ -14,7 +14,6 @@ export type QuantitativeMetric = Omit<Metric, "value"> & {
   type: "integer";
 };
 
-// Full Metric with value (for activity)
 export type QualitativeMetricWithValue = Metric & {
   name: "elements_created_at" | "elements_content";
   type: "application/json";
