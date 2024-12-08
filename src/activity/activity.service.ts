@@ -27,4 +27,12 @@ export class ActivityService {
     if (!activity) throw new NotFoundException();
     return { activityID: activity.activityID };
   }
+  provideMiroId(activityID: string, userId: string) {
+    const activity = this.activity.find(
+      (activity) => activity.activityID === activityID
+    );
+    if (!activity) throw new NotFoundException();
+    const boardId = activity.json_params["boardid"];
+    this.miroService.registerUser(boardId, userId);
+  }
 }
